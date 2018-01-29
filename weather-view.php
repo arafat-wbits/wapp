@@ -25,12 +25,6 @@ include('header.php');
 $sql = "SELECT * FROM winfo ORDER BY id DESC LIMIT 1";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-echo 'Pesent Temperature: '.$row['present_temp'].'<sup>o</sup> C / '.farentocel($row['present_temp']).'<sup>o</sup> F<br>';
-echo 'Low Temperature: '.$row['high_temp'].'<sup>o</sup> C / '.farentocel($row['high_temp']).'<sup>o</sup> F<br>';
-echo 'High Temperature: '.$row['low_temp'].'<sup>o</sup> C / '.farentocel($row['low_temp']).'<sup>o</sup> F<br>';
-echo 'Weather Type: '.$row['type'].'<br>';
-echo 'Humidity: '.$row['humidity'].'<br>';
-echo 'Time: '.date('d-M-Y h:i:sa',strtotime($row['wtime'])).' GMT<br><br><br>';
 
 
 ?>
@@ -95,14 +89,12 @@ echo 'Time: '.date('d-M-Y h:i:sa',strtotime($row['wtime'])).' GMT<br><br><br>';
 
 
 <?php
-
-
 			    }
 			} else {
 			    echo "0 results";
 			}
 
-			?>
+?>
 
 
 				<div class="col-md-1"></div>
