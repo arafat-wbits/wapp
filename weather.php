@@ -1,10 +1,6 @@
 <?php
 include('db.php');
 
-function farentocel($celsius){
-	return $farenhit = number_format($celsius * 1.8 + 32,2);
-}
-
 $string = file_get_contents('http://api.openweathermap.org/data/2.5/weather?q=Dhaka,bd&units=metric&appid=b768f859692b8aa95f4812cb78383615');
 $json = json_decode($string,true);
 
