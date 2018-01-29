@@ -1,0 +1,36 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+.weather_box{
+    margin: 10% 20%;
+    border: 2px solid #F8B62D;
+    background: whitesmoke;
+}
+.img_design{
+    width:110px;
+    height:100px;
+    margin-left: 20px;
+}
+.weather_description{
+    margin: 15px 0px 0px 15px;
+    color:#3c3c3c;
+}
+.city{
+    font-size: 25px;
+}
+.day{
+    font-size: 18px;
+}
+.status{
+    font-size: 15px;
+}
+.temp{
+    font-size: 40px;
+}
+.degree{
+    font-size:10px;
+}
+.weather_padding{
+    margin-top:10px;
+}
