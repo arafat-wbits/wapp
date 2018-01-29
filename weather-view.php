@@ -1,4 +1,5 @@
 <?php
+
 include('db.php');
 
 function farentocel($celsius){
@@ -31,15 +32,18 @@ echo 'Weather Type: '.$type.'<br>';
 echo 'Humidity: '.$humidity.'<br>';
 echo 'Time: '.$time.' GMT<br><br><br>';
 
+$sql = "SELECT * FROM winfo ORDER BY id DESC LIMIT 5";
+$result = mysqli_query($conn, $sql);
 
-
-$sql = "INSERT INTO winfo (present_temp, high_temp, low_temp, type, humidity, wtime)
-VALUES ('$present_temp','$high_temp','$low_temp','$type','$humidity', '$time')";
-
-if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+    	echo 'Time: '.date('d-M-Y h:i:sa',strtotime($row['wtime'])).' GMT<br>';
+		echo 'Temperature: '.$row['present_temp'].'<sup>o</sup> C / '.farentocel($row['present_temp']).'<sup>o</sup> F<br>';
+		echo 'Humidity: '.$row['humidity'].'<br><hr>';
+    }
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    echo "0 results";
 }
 
 mysqli_close($conn);
